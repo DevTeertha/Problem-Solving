@@ -59,11 +59,25 @@ function hotelCost(day) {
 
 function megaFriend(friends) {
     var errorMessage = "String Not Supported.Please Try Again With Array";
+    var errorArray = "Array Should Not Be Number.Please Try Again With String Type Array";
     var errorEmpty = "No name Found";
+    var check;
     if(friends.length<=0){
         return errorEmpty;
     }
     else if (Array.isArray(friends)) {
+        //Checking Array
+        for(i=0;i<friends.length;i++){
+            if(typeof friends[i]=='number'){
+                return errorArray;
+                break;
+            }
+            else{
+                break;
+            }
+        }
+
+        //Finding Big Number In Array
         var bigName = friends[0];
         for (i = 1; i < friends.length; i++) {
             if (bigName.length < friends[i].length) {
